@@ -27,7 +27,7 @@ const Registration = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-        console.log("err is : ", error);
+        console.log("err is : ", error, errorCode, errorMessage);
       });
   };
   console.log(email, password);
