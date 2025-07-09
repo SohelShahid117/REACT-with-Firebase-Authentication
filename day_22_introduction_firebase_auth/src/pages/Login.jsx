@@ -1,5 +1,6 @@
 import {
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -52,6 +53,21 @@ const Login = () => {
         console.log("err is : ", error);
       });
   };
+
+  const handleGithubLogin = () => {
+    console.log("github login");
+    const provider = new GithubAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        alert("login success with Github");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
       <div className="bg-white max-w-xl shadow-md space-y-5 p-5  rounded-lg  h-auto flex flex-col  justify-center">
@@ -100,9 +116,12 @@ const Login = () => {
               <FaFacebook />
               <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
             </button>
-            <button className="flex px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-md items-center text-xl cursor-pointer">
+            <button
+              onClick={handleGithubLogin}
+              className="flex px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-md items-center text-xl cursor-pointer"
+            >
               <FaGithub />
-              <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
+              <span className="text-2xl font-semibold ml-2 mb-0.5">Github</span>
             </button>
           </div>
         </div>
