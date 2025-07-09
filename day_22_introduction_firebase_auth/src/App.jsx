@@ -1,7 +1,8 @@
 import { NavLink } from "react-router";
 import "./App.css";
 import LogOut from "./pages/LogOut";
-import OnAuthStateChange from './pages/OnAuthStateChange';
+import OnAuthStateChange from "./pages/OnAuthStateChange";
+// import { AuthProvider } from "./context/AuthState";
 
 function App() {
   return (
@@ -25,10 +26,18 @@ function App() {
                 Login
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/dashboard"
+                className="px-6 py-2 bg-blue-500  hover:bg-blue-700 cursor-pointer rounded-md text-white text-xl"
+              >
+                Dashboard
+              </NavLink>
+            </li>
           </ul>
         </nav>
         <LogOut />
-        <OnAuthStateChange />
+        {/* <OnAuthStateChange /> */}
       </div>
     </>
   );
