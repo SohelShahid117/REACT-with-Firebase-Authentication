@@ -1,4 +1,9 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import React, { useState } from "react";
 import app from "../firebase/firebase.config";
 import { NavLink, useNavigate } from "react-router";
@@ -31,6 +36,20 @@ const Login = () => {
 
         setErr("invalid email or password");
         console.log("error is", error, errorCode, errorMessage);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    console.log("google login");
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("err is : ", error);
       });
   };
   return (
@@ -70,7 +89,10 @@ const Login = () => {
         <div className="text-center">
           <p className="mb-2">Or Login With : </p>
           <div className="flex gap-5">
-            <button className="flex px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-md items-center text-xl cursor-pointer">
+            <button
+              onClick={handleGoogleLogin}
+              className="flex px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-md items-center text-xl cursor-pointer"
+            >
               <FaGoogle />
               <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
             </button>
