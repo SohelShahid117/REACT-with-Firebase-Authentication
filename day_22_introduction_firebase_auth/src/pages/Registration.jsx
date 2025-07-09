@@ -6,6 +6,7 @@ import app from "../firebase/firebase.config";
 const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
   const auth = getAuth(app);
   const navigate = useNavigate();
 
@@ -24,10 +25,11 @@ const Registration = () => {
         navigate("/login");
       })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-        console.log("err is : ", error, errorCode, errorMessage);
+        console.log("err is : ", errorMessage);
+        setErr(errorMessage);
       });
   };
   console.log(email, password);
@@ -35,7 +37,7 @@ const Registration = () => {
 
   return (
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
-      <div className="bg-white max-w-md shadow-md space-y-5 p-5  rounded-lg w-96 h-80 flex flex-col  justify-center">
+      <div className="bg-white max-w-md shadow-md space-y-5 p-5  rounded-lg w-96 h-92 flex flex-col  justify-center">
         <h1 className="text-xl font-bold text-center -mb-2">Register Please</h1>
         <form onSubmit={handleRegister} className="">
           <div className="flex flex-col space-y-1">
@@ -62,6 +64,7 @@ const Registration = () => {
               className="ml-2 focus:ring-amber-400 focus:ring-4 focus:border-none border-2 p-2 rounded-md"
             />
           </div>
+          {err && <p className="text-red-500 mt-2 italic">{err}</p>}
           <button className="w-full px-6 py-3 text-white bg-blue-500 hover:bg-blue-700 mt-5 rounded-md">
             Sign Up
           </button>

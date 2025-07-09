@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import "./App.css";
+import LogOut from "./pages/LogOut";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </li>
           </ul>
         </nav>
+        <LogOut />
       </div>
     </>
   );
