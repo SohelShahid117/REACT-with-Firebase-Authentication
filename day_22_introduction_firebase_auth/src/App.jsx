@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import "./App.css";
 import LogOut from "./pages/LogOut";
+import OnAuthStateChange from './pages/OnAuthStateChange';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           </ul>
         </nav>
         <LogOut />
+        <OnAuthStateChange />
       </div>
     </>
   );
