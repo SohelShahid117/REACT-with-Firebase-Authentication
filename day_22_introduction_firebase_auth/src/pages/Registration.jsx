@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ const Registration = () => {
 
   return (
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
-      <div className="bg-white max-w-md shadow-md space-y-5 p-5  rounded-lg w-96 h-92 flex flex-col  justify-center">
+      <div className="bg-white max-w-xl shadow-md space-y-5 p-5  rounded-lg  h-auto flex flex-col  justify-center">
         <h1 className="text-xl font-bold text-center -mb-2">Register Please</h1>
         <form onSubmit={handleRegister} className="">
           <div className="flex flex-col space-y-1">
@@ -69,6 +70,23 @@ const Registration = () => {
             Sign Up
           </button>
         </form>
+        <div className="text-center">
+          <p className="mb-2">Or Login With : </p>
+          <div className="flex gap-5">
+            <button className="flex px-4 py-3 bg-red-500 hover:bg-red-600 text-white rounded-md items-center text-xl cursor-pointer">
+              <FaGoogle />
+              <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
+            </button>
+            <button className="flex px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md items-center text-xl cursor-pointer">
+              <FaFacebook />
+              <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
+            </button>
+            <button className="flex px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-md items-center text-xl cursor-pointer">
+              <FaGithub />
+              <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
+            </button>
+          </div>
+        </div>
         <p className="mb-5 text-center">
           Already have an account? go to
           <NavLink
