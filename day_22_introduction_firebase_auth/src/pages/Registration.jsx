@@ -79,7 +79,9 @@ const Registration = () => {
             </button>
             <button className="flex px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md items-center text-xl cursor-pointer">
               <FaFacebook />
-              <span className="text-2xl font-semibold ml-2 mb-0.5">Google</span>
+              <span className="text-2xl font-semibold ml-2 mb-0.5">
+                Facebook
+              </span>
             </button>
             <button className="flex px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-md items-center text-xl cursor-pointer">
               <FaGithub />

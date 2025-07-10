@@ -37,7 +37,7 @@ function App() {
           </ul>
         </nav>
         <LogOut />
-        {/* <OnAuthStateChange /> */}
+        <OnAuthStateChange />
       </div>
     </>
   );

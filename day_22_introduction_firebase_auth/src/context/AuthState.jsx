@@ -7,9 +7,11 @@ export const UseAuth = () => useContext(AuthCntxt);
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
+      setLoading(false);
       if (user) {
         console.log("auth provider user is : ", user);
         setCurrentUser(user.email);
@@ -18,7 +20,7 @@ export const AuthProvider = ({ children }) => {
       }
     });
   }, [auth]);
-  const value = { currentUser };
+  const value = { currentUser, loading };
   console.log(currentUser);
   return <AuthCntxt.Provider value={value}>{children}</AuthCntxt.Provider>;
 };
