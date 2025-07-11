@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 
@@ -8,6 +12,8 @@ const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const [verificationMessage, setVerificationMessage] = useState("");
+
   const auth = getAuth(app);
   const navigate = useNavigate();
 
@@ -19,11 +25,20 @@ const Registration = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        // ...
-        console.log("user signed", user);
-        alert("registration successful");
+        sendEmailVerification(user)
+          .then(() => {
+            setVerificationMessage(
+              "registration successful.A verification message has been sent to your email account"
+            );
+            console.log("verification email has been sent", user.email);
+          })
+          .catch((err) => console.log(err));
+        setTimeout(() => {
+          console.log("user signed", user);
+          alert("registration successful");
 
-        navigate("/login");
+          navigate("/login");
+        }, 15000);
       })
       .catch((error) => {
         // const errorCode = error.code;
@@ -35,6 +50,7 @@ const Registration = () => {
   };
   console.log(email, password);
   console.log(auth);
+  console.log(verificationMessage);
 
   return (
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
