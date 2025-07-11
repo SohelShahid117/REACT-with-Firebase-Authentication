@@ -12,7 +12,7 @@ const OnAuthStateChange = () => {
         // https://firebase.google.com/docs/reference/js/auth.user
         // const uid = user.uid;
         console.log(user.email);
-        setUserrr(user.email);
+        setUserrr(user);
         // ...
       } else {
         // User is signed out
@@ -28,8 +28,8 @@ const OnAuthStateChange = () => {
       <div>
         {userrr ? (
           <p>
-            Welcome!{" "}
-            <span className="text-xl font-semibold ml-1">{userrr}</span>
+            Welcome!
+            <span className="text-xl font-semibold ml-1">{userrr.email}</span>
           </p>
         ) : (
           <p>Login please</p>

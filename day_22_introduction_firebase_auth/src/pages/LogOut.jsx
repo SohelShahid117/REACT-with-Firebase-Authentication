@@ -24,7 +24,10 @@ const LogOut = () => {
       });
   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-col">
+      <p className="mt-5 text-xl font-semibold text-center">
+        {currentUser?.email}
+      </p>
       <button
         onClick={handleLogout}
         className="m-5 mx-auto px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold"

@@ -34,10 +34,18 @@ function App() {
                 Dashboard
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/userProfile"
+                className="px-6 py-2 bg-blue-500  hover:bg-blue-700 cursor-pointer rounded-md text-white text-xl"
+              >
+                UserProfile
+              </NavLink>
+            </li>
           </ul>
         </nav>
         <LogOut />
-        <OnAuthStateChange />
+        {/* <OnAuthStateChange /> */}
       </div>
     </>
   );

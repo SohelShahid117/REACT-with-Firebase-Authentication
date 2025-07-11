@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import { AuthProvider } from "./context/AuthState.jsx";
 import PrivateRoute from "./routers/PrivateRoute.jsx";
 import Blogs from "./pages/Blogs.jsx";
+import UserProfile from "./pages/UserProfile.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -30,6 +31,14 @@ createRoot(document.getElementById("root")).render(
           element={
             <PrivateRoute>
               <Blogs />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/userProfile"
+          element={
+            <PrivateRoute>
+              <UserProfile />
             </PrivateRoute>
           }
         />

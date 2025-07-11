@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
       if (user) {
         console.log("auth provider user is : ", user);
-        setCurrentUser(user.email);
+        setCurrentUser(user);
       } else {
         console.log("auth provider means login user nai");
       }
