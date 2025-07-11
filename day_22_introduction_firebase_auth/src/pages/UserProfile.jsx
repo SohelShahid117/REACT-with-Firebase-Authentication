@@ -1,5 +1,6 @@
 import React from "react";
 import { UseAuth } from "../context/AuthState";
+import { NavLink } from "react-router";
 
 const UserProfile = () => {
   const { currentUser } = UseAuth();
@@ -28,6 +29,12 @@ const UserProfile = () => {
         user id :
         <span className="text-lg font-semibold ml-2">{currentUser.uid}</span>
       </h2>
+      <NavLink
+        to="/updateUserProfile"
+        className="px-6 py-2 text-white bg-blue-500"
+      >
+        Update Profile
+      </NavLink>
     </div>
   );
 };
