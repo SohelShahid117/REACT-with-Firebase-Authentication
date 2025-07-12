@@ -11,6 +11,7 @@ import PrivateRoute from "./routers/PrivateRoute.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
 import UpdateProfile from "./pages/UpdateProfile.jsx";
+import UpdatePassword from "./pages/UpdatePassword.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -48,6 +49,14 @@ createRoot(document.getElementById("root")).render(
           element={
             <PrivateRoute>
               <UpdateProfile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/updatePassword"
+          element={
+            <PrivateRoute>
+              <UpdatePassword />
             </PrivateRoute>
           }
         />
