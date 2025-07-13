@@ -12,6 +12,7 @@ import Blogs from "./pages/Blogs.jsx";
 import UserProfile from "./pages/UserProfile.jsx";
 import UpdateProfile from "./pages/UpdateProfile.jsx";
 import UpdatePassword from "./pages/UpdatePassword.jsx";
+import SendPasswordResetEmail from "./pages/SendPasswordResetEmail.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -57,6 +58,14 @@ createRoot(document.getElementById("root")).render(
           element={
             <PrivateRoute>
               <UpdatePassword />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/resetPasswordEmail"
+          element={
+            <PrivateRoute>
+              <SendPasswordResetEmail />
             </PrivateRoute>
           }
         />
